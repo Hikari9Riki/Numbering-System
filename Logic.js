@@ -13,11 +13,11 @@ function showTab(tabId) {
             let num2Base = document.getElementById('baseNum2').value;
             const what2Do = document.getElementById('operation').value;
             const toBase = document.getElementById('outputBase').value;
-
+            console.log("NUM1 = " + num1 + "\nNum1Base = " + num1Base + "\n\nNUM2 = " + num2 + "\nNum2Base = " + num2Base )
             num1 = anyBase2Decimal(num1, num1Base);
-            console.log(num1)
+            console.log("Change num1 to decimal from " + num1base + "to decimal: " + num1)
             num2 = anyBase2Decimal(num2,num2Base);
-            console.log(num2)
+            console.log(console.log("Change num2 to decimal from " + num2base + "to decimal: " + num2))
 
             if (isNaN(num1) || isNaN(num2)) {
                 alert('Please enter valid numbers');
@@ -91,23 +91,27 @@ function showTab(tabId) {
             let DecInt = 0;
             let Decfrac = 0;
             let result= '';
-            console.log(intreverse);
-
+            console.log("Converting Process !" +
+                        "                   V");
+            console.log("for integer we use total += Nx * B^x ");
+            console.log("Which is N is the number for each integer from right (x) (0->end) and B is the base power by x");
             try {
                 // Convert integer part
-                for (let x = 0; x < integerPart.length; x++) {                              // using total += (N(x) * B^x)........ 
+                for (let x = 0; x < integerPart.length; x++) {                              // using total += (N * B^x)........ 
                     
                     DecInt += parseInt(intreverse[x], fromBase) * Math.pow(fromBase, x);    //the number multiply witth the the base^position.
-                    
+                    console.log(parseInt(intreverse[x], fromBase) + "x" + Math.pow(fromBase, x) + "result : " + DecInt) ;
                     //parseInt to change the string to number type according to base form. if it find the string is A so it will be 10.
                 }       
 
-
+            console.log("for integer we use total += Nx * B^-(x+1) ");
+            console.log("Which is N is the number for each integer from right (x) (0->end) and B is base power by -(x+1) ");
                 // Convert fractional part
                 for (let y = 0; y < fractionalPart.length; y++) {                       // using total += (N(x) * B^x)........
                     
                     const fractionalDigit = parseInt(fractionalPart[y], fromBase);      // create new varible t make sure next line no gonna be long
                     Decfrac += fractionalDigit * Math.pow(fromBase, -(y + 1));          // why -( y+1 )? to get power negative and y for array in fractianalDigit and + 1 because power start from -1
+                    console.log(parseInt(fractionalDigit, fromBase) + "x" + Math.pow(fromBase, -(y+a)) + "result : " + Decfrac) ;
                 }
 
             } catch (error) {
