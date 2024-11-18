@@ -13,11 +13,11 @@ function showTab(tabId) {
             let num2Base = document.getElementById('baseNum2').value;
             const what2Do = document.getElementById('operation').value;
             const toBase = document.getElementById('outputBase').value;
-            console.log("NUM1 = " + num1 + "\nNum1Base = " + num1Base + "\n\nNUM2 = " + num2 + "\nNum2Base = " + num2Base )
+            console.log("NUM1 = " + num1 + "\nNum1Base = " + num1Base + "\n\nNUM2 = " + num2 + "\nNum2Base = " + num2Base );
             num1 = anyBase2Decimal(num1, num1Base);
-            console.log("Change num1 to decimal from " + num1base + "to decimal: " + num1)
+            console.log("Change num1 to decimal from " + num1Base + "to decimal: " + num1);
             num2 = anyBase2Decimal(num2,num2Base);
-            console.log(console.log("Change num2 to decimal from " + num2base + "to decimal: " + num2))
+            console.log(console.log("Change num2 to decimal from " + num2Base + "to decimal: " + num2))
 
             if (isNaN(num1) || isNaN(num2)) {
                 alert('Please enter valid numbers');
@@ -48,9 +48,9 @@ function showTab(tabId) {
                     return;
             }
 
-            console.log(result)
+            console.log(result);
             
-            console.log(Decimal2AnyBase(result,toBase))
+            console.log(Decimal2AnyBase(result,toBase));
             document.getElementById('calcResult').innerText = Decimal2AnyBase(result,toBase);
 
         }
@@ -123,7 +123,7 @@ function showTab(tabId) {
             if (minus == true){
                 result = -(result);
             }
-
+            console.log(result)
             return result;
             }
 
