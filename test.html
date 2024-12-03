@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Section Switcher</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    .wrapper {
+      text-align: center;
+      width: 400px;
+    }
+
+    .section-choice button {
+      background: linear-gradient(135deg, #ff6b6b, #f94d6a);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-choice button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ff8b8b, #fa6d8a);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .container {
+      width: 100%;
+      height: 250px;
+      perspective: 1200px;
+      position: relative;
+      margin-top: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .section {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+      color: #333;
+      font-size: 1.8rem;
+      font-weight: bold;
+      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .section.hidden {
+      display: none;
+    }
+
+    .section-1 { background-color: rgba(255, 107, 107, 0.9); }
+    .section-2 { background-color: rgba(72, 219, 251, 0.9); }
+    .section-3 { background-color: rgba(29, 209, 161, 0.9); }
+
+    .section.active {
+      transform: rotateY(0);
+      display: flex;
+    }
+
+    .section p {
+      margin: 0;
+      padding: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="section-choice">
+      <button onclick="chooseSection(1)">Section 1</button>
+      <button onclick="chooseSection(2)">Section 2</button>
+      <button onclick="chooseSection(3)">Section 3</button>
+    </div>
+
+    <div class="container">
+      <div id="section-1" class="section section-1 hidden">
+        <p>Welcome to Section 1</p>
+      </div>
+      <div id="section-2" class="section section-2 hidden">
+        <p>Explore Section 2</p>
+      </div>
+      <div id="section-3" class="section section-3 hidden">
+        <p>Discover Section 3</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSection = null;
+
+    function chooseSection(sectionNumber) {
+      const newSection = document.getElementById(`section-${sectionNumber}`);
+      if (newSection === currentSection) return;
+
+      if (currentSection) {
+        currentSection.classList.remove('active');
+        setTimeout(() => currentSection.classList.add('hidden'), 500);
+      }
+
+      newSection.classList.remove('hidden');
+      setTimeout(() => newSection.classList.add('active'), 50);
+
+      currentSection = newSection;
+    }
+  </script>
+</body>
+</html>
