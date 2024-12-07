@@ -124,3 +124,10 @@ width: 120px;
 height: 120px;
 
 }
+
+.sectionBox {
+    text-align: left;
+    width: 50%;
+    max-width: 300px;
+    padding: 5px;
+}
