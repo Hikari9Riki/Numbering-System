@@ -105,6 +105,10 @@ body {
     grid-column: 2 / span 1;
     align-self: center;
 }
+
+.numberactive {
+    transform: scale(0.95);
+}
 .section {
     display: none;
 }
