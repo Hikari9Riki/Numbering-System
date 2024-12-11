@@ -7,9 +7,9 @@ let currentOperand = '';
         let input2 = '';
 
         function focusInput(input){
-            document.getElementById('n1').classList.remove('active');
-            document.getElementById('n2').classList.remove('active');
-            document.getElementById(input).classList.add('active');
+            document.getElementById('n1').classList.remove('numselected');
+            document.getElementById('n2').classList.remove('numselected');
+            document.getElementById(input).classList.add('numselected');
             if (input == 'n1'){
                 currentinput = 'num1';
             } 
@@ -45,7 +45,7 @@ let currentOperand = '';
                 case 'add':
                     result = num1 + num2;
                     break;
-                case 'subtract':
+                case 'substract':
                     result = num1 - num2;
                     break;
                 case 'multiply':
@@ -181,6 +181,7 @@ let currentOperand = '';
                           const remainder = DecInt % ConvertTo;
                           result = ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) + result;
                           DecInt = Math.floor( DecInt / ConvertTo ); 
+                          
                       }
               
                       
@@ -232,6 +233,7 @@ let currentOperand = '';
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
+            clearDisplay();
         }
 
         // Calculator Logic
@@ -249,11 +251,11 @@ let currentOperand = '';
 
 
         function setOperation(op) {
-            document.getElementById('add').classList.remove('active');
-            document.getElementById('substract').classList.remove('active');
-            document.getElementById('multiply').classList.remove('active');
-            document.getElementById('devide').classList.remove('active');
-            document.getElementById(op).classList.add('active');
+            document.getElementById('add').classList.remove('opselected');
+            document.getElementById('substract').classList.remove('opselected');
+            document.getElementById('multiply').classList.remove('opselected');
+            document.getElementById('devide').classList.remove('opselected');
+            document.getElementById(op).classList.add('opselected');
             currentoperation = op;
             console.log(currentoperation);
         }
@@ -293,6 +295,8 @@ let currentOperand = '';
         }
 
         function clearDisplay() {
+            document.getElementById('add').classList.add('opselected');
+            document.getElementById('n1').classList.add('numselected');
             input1 = '';
             input2 = '';
             setOperation('add');

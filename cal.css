@@ -106,12 +106,17 @@ body {
     align-self: center;
 }
 
-.numberactive {
-    transform: scale(0.95);
-}
 .section {
     display: none;
 }
 .section.active {
     display: block;
+}
+
+.numselected {
+    background: #48AAAD;
+}
+
+.opselected {
+    background: #48AAAD;
 }
