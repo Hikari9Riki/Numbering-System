@@ -84,8 +84,7 @@ body {
     gap: 10px;
     position: relative;
 }
-
-.button, .base-selector, .operations, .number {
+.button, .base-selector {
     padding: 15px;
     font-size: 1.2rem;
     border: none;
@@ -95,10 +94,10 @@ body {
     cursor: pointer;
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
-.button:hover, .base-selector:hover,  .operations:hover, .number:hover{
+.button:hover, .base-selector:hover {
     background: #09ff00;
 }
-.button:active, .base-selector:active , .operations:active, .number:active{
+.button:active, .base-selector:active {
     transform: scale(0.95);
 }
 .base-selector {
