@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Number System Calculator</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+    <!-- Mode Selection -->
+    <div class="mode-select">
+        <button onclick="toggleSection('calculator')">Calculator</button>
+        <button onclick="toggleSection('converter')">Converter</button>
+    </div>
+
+    <!-- Calculator Section -->
+    <div id="calculator" class="section calculator">
+    <div class="display-container">
+        <input type="text" class="display-number-1" id="num1" placeholder="N1" onclick="focus('input-1')" disabled>
+        <input type="text" class="display-number-2" id="nuum2" placeholder="N2" onclick="focus('input-2')" disabled>
+    </div>
+        <div class="display" id="calc-display">0</div>
+        <div class="buttons">
+            <!-- Number Buttons -->
+            <button class="button" onclick="focus()">N1</button>
+            <button class="button" onclick="focus()">N2</button>
+            <button class="button" onclick="clearDisplay()">CLR</button>
+            <button class="button" onclick="calculate()">=</button>
+            <button class="button" onclick="appendNumber('F')">F</button>
+            <button class="button" onclick="appendNumber('E')">E</button>
+            <button class="button" onclick="appendNumber('D')">D</button>
+            <button class="button" onclick="setOperation('+')">+</button>
+            <button class="button" onclick="appendNumber('A')">A</button>
+            <button class="button" onclick="appendNumber('B')">B</button>
+            <button class="button" onclick="appendNumber('C')">C</button>
+            <button class="button" onclick="setOperation('-')">-</button>
+            <button class="button" onclick="appendNumber('9')">9</button>
+            <button class="button" onclick="appendNumber('8')">8</button>
+            <button class="button" onclick="appendNumber('7')">7</button>
+            <button class="button" onclick="setOperation('*')">×</button>
+            <button class="button" onclick="appendNumber('6')">6</button>
+            <button class="button" onclick="appendNumber('5')">5</button>
+            <button class="button" onclick="appendNumber('4')">4</button>        
+            <button class="button" onclick="setOperation('/')">÷</button>
+            <button class="button" onclick="appendNumber('3')">3</button>
+            <button class="button" onclick="appendNumber('2')">2</button>
+            <button class="button" onclick="appendNumber('1')">1</button>
+            <button class="button" onclick="appendNumber('0')">0</button>
+            
+            
+            
+            <!-- Base Selector -->
+        </div>
+        <div class="selects">
+            <select id="base" class="base-selector">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10" selected>Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Converter Section -->
+    <div id="converter" class="section calculator">
+        <div class="display" id="conv-display">Enter Binary</div>
+        <div class="buttons">
+            <button class="button" onclick="appendBinary('1')">1</button>
+            <button class="button" onclick="appendBinary('0')">0</button>
+            <button class="button" onclick="convertBinary()">Conv</button>
+            <button class="button" onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+
+    <script src="cal.js"></script>
+</body>
+</html>
