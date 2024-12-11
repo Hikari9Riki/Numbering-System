@@ -5,6 +5,7 @@ let currentOperand = '';
         let currentoperation = '+';
         let input1 = '';
         let input2 = '';
+        let inputCnv = '';
 
         function focusInput(input){
             document.getElementById('n1').classList.remove('numselected');
@@ -74,16 +75,21 @@ let currentOperand = '';
        
 
         function converting() {
-            const inputNum = document.getElementById('convertInput').value;
-            const InputBase = document.getElementById('convertFrom').value;
-            const convertToBase = document.getElementById('convertTo').value;
-          
-            const inputDecimal = anyBase2Decimal(inputNum,InputBase);
-            const result = Decimal2AnyBase(inputDecimal,convertToBase);
-          
-            document.getElementById('convertResult').innerText = result;
-          
-          
+            if (cnvValidate()){
+                const inputNum = inputCnv
+                const InputBase = document.getElementById('fromBase').value;
+                const convertToBase = document.getElementById('toBase').value;
+              
+                const inputDecimal = anyBase2Decimal(inputNum,InputBase);
+                const result = Decimal2AnyBase(inputDecimal,convertToBase);
+              
+                document.getElementById('conv-display').innerText = "result: " + result;
+                inputCnv = '';
+            } else {
+                document.getElementById('conv-display').innerText = "result: Erorr";
+                inputCnv = '';
+            }
+            
         }
 
         function anyBase2Decimal(num, fromBase) {   
@@ -248,6 +254,11 @@ let currentOperand = '';
             }
         }
 
+        function addConvertValue(number) {
+            inputCnv += number;
+            updateDisplay('conv-display', inputCnv);
+        }
+
 
 
         function setOperation(op) {
@@ -308,10 +319,37 @@ let currentOperand = '';
             console.log("pass4");
             updateDisplay('num2', 'num2');
             console.log("pass5");
-            updateDisplay('conv-display', 'Enter Binary');
-            console.log("pass6");
+        }
+
+        function clearConvert(){
+            inputCnv = '';
+            updateDisplay('conv-display', 'Enter Input');
         }
 
         function updateDisplay(displayId, value) {
             document.getElementById(displayId).innerText = value;
         }
+
+        function cnvValidate() {
+            let numBase = document.getElementById('fromBase').value;
+
+            if (numBase == 2){
+                if (inputCnv.includes('3','4','5','6','7','8','9','A','B','C','D','E','F')){
+                    alert('Please enter Binary numbers.');
+                    return false;
+                }
+            }
+            if (numBase == 8){
+                if (inputCnv.includes('9','A','B','C','D','E','F')){
+                    alert('Please enter Octa numbers.');
+                    return false;
+                }
+            }
+            if (numBase == 10){
+                if (inputCnv.includes('A','B','C','D','E','F')){
+                    alert('Please enter Decimal numbers.');
+                    return false;
+                }
+            }
+            return true;
+        } 
