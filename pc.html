@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Symbols.icon">
+    <title>Numbering System Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+        <img class="img-header" src="Symbols.icon"></img>
+            <h2>Welcome to Numbering System Calculator</h2>
+            <p>Please choose an option below to proceed.</p>
+        </header>
+        
+        <!-- Choose Box -->
+        <section class="section" id="chooseBox">
+            <center>
+                <h2>Select Operation</h2>
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tablink" onclick="showTab('calculation')">Calculation</button>
+                    <button class="tablink" onclick="showTab('convert')">Convert</button>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" onclick="toggleTheme()">
+                    <span class="slider"></span>
+                </label>
+            </center>
+        </section>
+
+    <center>
+
+        <div class="sectionBox" id="Box">
+        <!-- Calculation Section -->
+            <section class="section" id="calculation" style="display: none;">
+                
+                <h2>Calculation</h2>
+                <label for="num1">Input Number 1:</label>
+                <input type="text" id="num1" placeholder="Enter number">
+                <select id="baseNum1">
+                    <option value="2">Binary</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select><br>
+
+                <label for="num2">Input Number 2:</label>
+                <input type="text" id="num2" placeholder="Enter number">
+                <select id="baseNum2">
+                    <option value="2">Binary</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select><br>
+
+                <label for="operation">Choose Operation:</label>
+                <select id="operation">
+                    <option value="add">+</option>
+                    <option value="subtract">-</option>
+                    <option value="multiply">×</option>
+                    <option value="divide">÷</option>
+                </select><br>
+
+                <label for="outputBase">Output Base:</label>
+                <select id="outputBase">
+                    <option value="2">Binary</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select><br>
+                <p></p>
+
+                <button onclick="operation()">Calculate</button>
+                <p>Result: <span id="calcResult">-</span></p>
+            
+            </section>
+
+            <!-- Convert Section -->
+            <section class="section" id="convert" style="display: none;">
+                
+                <h2>Convert</h2>
+                <label for="convertInput">Input Number:</label>
+                <input type="text" id="convertInput" placeholder="Enter number"><br>
+
+                <label for="convertFrom">Convert From:</label>
+                <select id="convertFrom">
+                    <option value="2">Binary</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select><br>
+
+                <label for="convertTo">Convert To:</label>
+                <select id="convertTo">
+                    <option value="2">Binary</option>
+                    <option value="8">Octal</option>
+                    <option value="10">Decimal</option>
+                    <option value="16">Hexadecimal</option>
+                </select><br>
+                <br>
+
+                <button onclick="converting()">Convert</button>
+                <p>Conversion Result: <span id="convertResult">-</span></p>
+            
+            </section>
+        </div>
+
+    </center>
+
+        <!-- Footer -->
+        <footer>
+            <p>Developed by BICS1302 Sec5 Grp7. Est. 2024.</p>
+            <p>Contact us at <a href="mailto:tenqxtech@gmail.com">tenqxtech@gmail.com</a></p>
+        </footer>
+    </div>
+
+
+<script src="Logic.js"></script>
+</body>
+
+</html>
