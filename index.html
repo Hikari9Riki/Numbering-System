@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Iframe</title>
+    <title>Numbering System Calculator</title>
     <style>
         body {
             margin: 0;
@@ -22,20 +22,20 @@
     </style>
 </head>
 <body>
-    <iframe id="responsive-iframe"></iframe>
+    <iframe id="htmlDevice"></iframe>
 
     <script>
-        // Function to detect if the device is a phone or a laptop
+        
         function isMobileDevice() {
             return /Mobi|Android|iPhone/i.test(navigator.userAgent);
         }
 
-        // Load the appropriate HTML file into the iframe
-        const iframe = document.getElementById('responsive-iframe');
+        
+        const iframe = document.getElementById('htmlDevice');
         if (isMobileDevice()) {
-            iframe.src = 'mobile.html'; // Load mobile-specific HTML
+            iframe.src = 'mobile.html'; 
         } else {
-            iframe.src = 'pc.html'; // Load desktop-specific HTML
+            iframe.src = 'pc.html';
         }
     </script>
 </body>
