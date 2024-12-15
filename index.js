@@ -192,6 +192,9 @@ let currentOperand = '';
                       
                       if (Decfrac >  0){
                           let limit = 0;
+                          if (result == ''){
+                            result = 0;
+                          }
                           result = result + '.'
               
                           while ( Decfrac > 0 && limit < 10 ) { // using 
@@ -199,6 +202,7 @@ let currentOperand = '';
                           const remainder = Math.floor(Decfrac);
                           result = result + ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) ;
                           Decfrac = Decfrac - remainder;
+                          limit ++;
                           }
                       }
               
