@@ -101,7 +101,7 @@ function anyBase2Decimal(num, fromBase) {
           DecInt += parseInt(intreverse[x], fromBase) * Math.pow(fromBase, x);    //the number multiply witth the the base^position.
           console.log(parseInt(intreverse[x], fromBase) + "x" + Math.pow(fromBase, x) + "result : " + DecInt) ;
           //parseInt to change the string to number type according to base form. if it find the string is A so it will be 10.
-      }       
+      }   
 
   console.log("for integer we use total += Nx * B^-(x+1) ");
   console.log("Which is N is the number for each integer from right (x) (0->end) and B is base power by -(x+1) ");
@@ -159,17 +159,20 @@ function Decimal2AnyBase(num,ConvertTo) {
             result = ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) + result;
             DecInt = Math.floor( DecInt / ConvertTo ); 
         }
+        
+        result = result == '' ? 0 : result;
   
         
         if (Decfrac >  0){
             let limit = 0;
             result = result + '.'
   
-            while ( Decfrac > 0 && limit < 10 ) { // using 
+            while ( Decfrac > 0 || limit < 10 ) { // using 
             Decfrac = Decfrac * ConvertTo;
             const remainder = Math.floor(Decfrac);
             result = result + ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) ;
             Decfrac = Decfrac - remainder;
+            limit++
             }
         }
   
