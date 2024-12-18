@@ -6,7 +6,6 @@ function showTab(tabId) {
 
 
 function operation() {
-  if (!validateInput()) return;
   let num1 = document.getElementById('num1').value;
   let num2 = document.getElementById('num2').value;
   let num1Base = document.getElementById('baseNum1').value;
@@ -203,13 +202,3 @@ function Decimal2AnyBase(num,ConvertTo) {
       document.body.classList.toggle('dark-mode');
   }
   
-  function validateInput() {
-      const num1 = document.getElementById('num1').value;
-      const num2 = document.getElementById('num2').value;
-
-      if (isNaN(num1) || isNaN(num2)) {
-          alert('Please enter valid numbers.');
-          return false;
-      }
-      return true;
-  }
