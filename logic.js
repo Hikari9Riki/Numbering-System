@@ -167,13 +167,14 @@ function Decimal2AnyBase(num,ConvertTo) {
             let limit = 0;
             result = result + '.'
   
-            while ( Decfrac > 0 || limit < 10 ) { // using 
+            while ( Decfrac > 0 ^ limit > 10 ) { // using 
             Decfrac = Decfrac * ConvertTo;
             const remainder = Math.floor(Decfrac);
             result = result + ( remainder < 10 ? remainder : String.fromCharCode(remainder + 55) ) ;
             Decfrac = Decfrac - remainder;
             limit++
             }
+            console.log("limit : " + limit);
         }
   
     } catch (error) {
