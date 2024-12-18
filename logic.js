@@ -96,7 +96,7 @@ function anyBase2Decimal(num, fromBase) {
   console.log("Which is N is the number for each integer from right (x) (0->end) and B is the base power by x");
   try {
       // Convert integer part
-      for (let x = 0; x < integerPart.length || x < 10; x++) {                              // using total += (N * B^x)........ 
+      for (let x = 0; x < integerPart.length ; x++) {                              // using total += (N * B^x)........ 
           
           DecInt += parseInt(intreverse[x], fromBase) * Math.pow(fromBase, x);    //the number multiply witth the the base^position.
           console.log(parseInt(intreverse[x], fromBase) + "x" + Math.pow(fromBase, x) + "result : " + DecInt) ;
@@ -106,7 +106,7 @@ function anyBase2Decimal(num, fromBase) {
   console.log("for integer we use total += Nx * B^-(x+1) ");
   console.log("Which is N is the number for each integer from right (x) (0->end) and B is base power by -(x+1) ");
       // Convert fractional part
-      for (let y = 0; y < fractionalPart.length || y < 10; y++) {                       // using total += (N(x) * B^x)........
+      for (let y = 0; y < fractionalPart.length ; y++) {                       // using total += (N(x) * B^x)........
           
           const fractionalDigit = parseInt(fractionalPart[y], fromBase);      // create new varible t make sure next line no gonna be long
           Decfrac += fractionalDigit * Math.pow(fromBase, -(y + 1));          // why -( y+1 )? to get power negative and y for array in fractianalDigit and + 1 because power start from -1
