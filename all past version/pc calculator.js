@@ -361,5 +361,12 @@ let currentOperand = '';
                     return false;
                 }
             }
+            if (numBase == 16){
+                
+                if (inputCnv.includes('A','B','C','D','E','F')){
+                    alert('Please enter Decimal numbers.');
+                    return false;
+                }
+            }
             return true;
         } 
